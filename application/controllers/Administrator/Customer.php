@@ -559,7 +559,8 @@ class Customer extends CI_Controller
                 sm.SaleMaster_SlNo as id,
                 sm.SaleMaster_SaleDate as date,
                 concat('Sales ', sm.SaleMaster_InvoiceNo) as description,
-                sm.SaleMaster_TotalSaleAmount as bill_amount,
+                sm.SaleMaster_SubTotalAmount as bill_amount,
+                sm.SaleMaster_TotalSaleAmount as sale_amount,
                 sm.SaleMaster_Bill_no as bill_no,
                 (select ifnull(sum(sd.SaleDetails_TotalQuantity),0) from tbl_saledetails sd where sd.SaleMaster_IDNo = sm.SaleMaster_SlNo) as sale_qty,
                 sm.SaleMaster_PaidAmount as paid,
@@ -590,6 +591,7 @@ class Customer extends CI_Controller
                     end, ' ', cp.CPayment_notes
                 ) as description,
                 0.00 as bill_amount,
+                0.00 as sale_amount,
                 '' as bill_no,
                 0 as sale_qty,
                 cp.CPayment_amount as paid,
@@ -618,6 +620,7 @@ class Customer extends CI_Controller
                     end, ' ', cp.CPayment_notes
                 ) as description,
                 0.00 as bill_amount,
+                0.00 as sale_amount,
                 '' as bill_no,
                 0 as sale_qty,
                 0.00 as paid,

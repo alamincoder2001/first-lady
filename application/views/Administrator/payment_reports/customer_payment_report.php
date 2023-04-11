@@ -72,8 +72,9 @@
                         <th style="text-align:center">Description</th>
                         <th style="text-align:center">Bill No</th>
                         <th style="text-align:center">Sale Qty</th>
-                        <th style="text-align:center">Sale Amount</th>
+                        <th style="text-align:center">Total Amount</th>
                         <th style="text-align:center">Discount</th>
+                        <th style="text-align:center">Amount</th>
                         <th style="text-align:center">Paid</th>
                         <th style="text-align:center">Inv.Due</th>
                         <th style="text-align:center">Retruned Qty</th>
@@ -96,6 +97,7 @@
                         <td style="text-align:right;">{{ parseFloat(payment.sale_qty) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.bill_amount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.discount).toFixed(2) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.sale_amount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.paid).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.due).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.return_qty) }}</td>
