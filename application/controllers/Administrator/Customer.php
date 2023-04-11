@@ -568,7 +568,7 @@ class Customer extends CI_Controller
                 (select ifnull(sum(srd.SaleReturnDetails_ReturnQuantity),0)
                 from tbl_salereturn sr
                 left join tbl_salereturndetails srd on srd.SaleReturn_IdNo = sr.SaleReturn_SlNo
-                where sr.SaleMaster_InvoiceNo = sm.SaleMaster_InvoiceNo) as return_qty,
+                where sr.SaleMaster_InvoiceNo = sm.SaleMaster_InvoiceNo and sr.Status = 'a') as return_qty,
                 sm.SaleMaster_TotalDiscountAmount as discount,
                 0.00 as paid_out,
                 0.00 as balance,

@@ -72,12 +72,13 @@
                         <th style="text-align:center">Description</th>
                         <th style="text-align:center">Bill No</th>
                         <th style="text-align:center">Sale Qty</th>
+                        <th style="text-align:center">Sale Amount</th>
+                        <th style="text-align:center">Discount</th>
                         <th style="text-align:center">Paid</th>
                         <th style="text-align:center">Inv.Due</th>
                         <th style="text-align:center">Retruned Qty</th>
                         <th style="text-align:center">Retruned</th>
-                        <th style="text-align:center">Discount</th>
-                        <th style="text-align:center">Paid to customer</th>
+                        <th style="text-align:center">Paid to Customer</th>
                         <th style="text-align:center">Balance</th>
                     </tr>
                 </thead>
@@ -92,12 +93,13 @@
                         <td>{{ moment(payment.date).format('DD/MM/YYYY') }}</td>
                         <td style="text-align:left;">{{ payment.description }}</td>
                         <td style="text-align:right;">{{ payment.bill_no }}</td>
-                        <td style="text-align:right;">{{ parseFloat(payment.sale_qty).toFixed(2) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.sale_qty) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.bill_amount).toFixed(2) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.discount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.paid).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.due).toFixed(2) }}</td>
-                        <td style="text-align:right;">{{ parseFloat(payment.return_qty).toFixed(2) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.return_qty) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.returned).toFixed(2) }}</td>
-                        <td style="text-align:right;">{{ parseFloat(payment.discount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.paid_out).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.balance).toFixed(2) }}</td>
                     </tr>
