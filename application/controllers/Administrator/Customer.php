@@ -644,7 +644,7 @@ class Customer extends CI_Controller
 
         foreach ($payments as $key => $payment) {
             $lastBalance = $key == 0 ? $previousDueQuery->previous_due : $payments[$key - 1]->balance;
-            $payment->balance = ($lastBalance + $payment->paid_out + $payment->bill_amount) - $payment->paid - ($payment->sequence == 'a' ? 0 : $payment->discount);
+            $payment->balance = ($lastBalance + $payment->paid_out + $payment->bill_amount) - $payment->paid - $payment->discount;
         }
 
         if ((isset($data->dateFrom) && $data->dateFrom != null) && (isset($data->dateTo) && $data->dateTo != null)) {
