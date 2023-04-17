@@ -90,7 +90,7 @@ const salesInvoice = Vue.component("sales-invoice", {
                                           <td style="text-align:left">{{ product1.Product_Name }}</td>
                                           <td style="text-align:center">{{ 'Return' }}</td>
                                           <td>{{ product1.SaleReturnDetails_ReturnQuantity }}</td>
-                                          <td>{{ (product1.SaleReturnDetails_ReturnAmount / product1.SaleReturnDetails_ReturnQuantity ).toFixed(2) }}</td>
+                                          <td>{{ product1.SaleReturnDetails_ReturnAmount }}</td>
                                       </template>
                                   </tr>
                                   <tr style="font-weight:bold;"> 
