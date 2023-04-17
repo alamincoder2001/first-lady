@@ -1290,10 +1290,9 @@ new Vue({
                             productId: rproduct.SaleReturnDetailsProduct_SlNo,
                             productCode: rproduct.Product_Code,
                             name: rproduct.Product_Name,
-                            salesRate: rproduct.SaleReturnDetails_ReturnAmount,
+                            salesRate: rproduct.SaleReturnDetails_ReturnAmount/rproduct.SaleReturnDetails_ReturnQuantity,
                             quantity: rproduct.SaleReturnDetails_ReturnQuantity,
-                            total: rproduct.SaleReturnDetails_ReturnAmount *
-                                rproduct.SaleReturnDetails_ReturnQuantity,
+                            total: rproduct.SaleReturnDetails_ReturnAmount,
                             purchaseRate: rproduct,
                         }
 
