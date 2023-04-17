@@ -73,21 +73,22 @@
                         <th style="text-align:center">Bill No</th>
                         <th style="text-align:center">Sale Qty</th>
                         <th style="text-align:center">Total Amount</th>
+                        <th style="text-align:center">Transport</th>
                         <th style="text-align:center">Discount</th>
                         <th style="text-align:center">Amount</th>
                         <th style="text-align:center">Paid</th>
                         <th style="text-align:center">Inv.Due</th>
                         <th style="text-align:center">Retruned Qty</th>
                         <th style="text-align:center">Retruned</th>
-                        <th style="text-align:center">Paid to Customer</th>
-                        <th style="text-align:center">Balance</th>
+                        <th style="text-align:center;width: 0;font-size: 10px;font-weight: 900;">Paid to Customer</th>
+                        <th style="text-align:center;width:12%;">Balance</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td></td>
                         <td style="text-align:left;">Previous Balance</td>
-                        <td colspan="10"></td>
+                        <td colspan="11"></td>
                         <td style="text-align:right;">{{ parseFloat(previousBalance).toFixed(2) }}</td>
                     </tr>
                     <tr v-for="payment in payments">
@@ -96,6 +97,7 @@
                         <td style="text-align:right;">{{ payment.bill_no }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.sale_qty) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.bill_amount).toFixed(2) }}</td>
+                        <td style="text-align:right;">{{ parseFloat(payment.transport).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.discount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.sale_amount).toFixed(2) }}</td>
                         <td style="text-align:right;">{{ parseFloat(payment.paid).toFixed(2) }}</td>
@@ -108,7 +110,7 @@
                 </tbody>
                 <tbody v-if="payments.length == 0">
                     <tr>
-                        <td colspan="13">No records found</td>
+                        <td colspan="14">No records found</td>
                     </tr>
                 </tbody>
             </table>

@@ -571,6 +571,7 @@ class Customer extends CI_Controller
                 left join tbl_salereturndetails srd on srd.SaleReturn_IdNo = sr.SaleReturn_SlNo
                 where sr.SaleMaster_InvoiceNo = sm.SaleMaster_InvoiceNo and sr.Status = 'a') as return_qty,
                 sm.SaleMaster_TotalDiscountAmount as discount,
+                sm.SaleMaster_Freight as transport,
                 0.00 as paid_out,
                 0.00 as balance,
                 sm.AddTime as datetime
@@ -599,6 +600,7 @@ class Customer extends CI_Controller
                 0.00 as returned,
                 0 as return_qty,
                 cp.CPayment_discount as discount,
+                0.00 as transport,
                 0.00 as paid_out,
                 0.00 as balance,
                 cp.CPayment_AddDAte as datetime
@@ -628,6 +630,7 @@ class Customer extends CI_Controller
                 0.00 as returned,
                 0 as return_qty,
                 cp.CPayment_discount as discount,
+                0.00 as transport,
                 cp.CPayment_amount as paid_out,
                 0.00 as balance,
                 cp.CPayment_AddDAte as datetime
@@ -644,7 +647,7 @@ class Customer extends CI_Controller
 
         foreach ($payments as $key => $payment) {
             $lastBalance = $key == 0 ? $previousDueQuery->previous_due : $payments[$key - 1]->balance;
-            $payment->balance = ($lastBalance + $payment->paid_out + $payment->bill_amount) - $payment->paid - $payment->discount;
+            $payment->balance = ($lastBalance + $payment->paid_out + $payment->bill_amount+$payment->transport) - ($payment->paid + $payment->discount+$payment->returned);
         }
 
         if ((isset($data->dateFrom) && $data->dateFrom != null) && (isset($data->dateTo) && $data->dateTo != null)) {
